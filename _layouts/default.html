@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.13.3/css/theme.bootstrap.css">
+    <link rel="stylesheet" href="/site.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'XXXX', 'spincyclz.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+
+    </script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="Spin Cyclz" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.spincyclz.com/img/awesome.jpg" />
+  </head>
+  <body>
+    <div class="container">
+    {% include navbar.html %}
+
+    {{ content }}
+      <hr>
+      <footer>
+        <div class="row" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div class="col-md-4">
+          <p>
+          <span itemprop="name">Spin Cyclz</span><br />
+          <a itemprop="telephone" href="tel:+1-707-559-8101">(707) 559-8101</a><br />
+          <a itemprop="email" href="mailto:onyourleft@spincyclz.com">onyourleft@spincyclz.com</a>
+          </p>
+          <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress">1364 North McDowell Blvd #5</span><br />
+            <span itemprop="addressLocality">Petaluma</span>,
+            <span itemprop="addressRegion">CA</span> <span itemprop="postalCode">94954</span>
+          </p>
+          <p>{% include hours.html %}
+          </p>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline">
+            <li><a href="https://www.facebook.com/SpinCyclz"><i class="fa fa-lg fa-facebook"></i> Facebook</a>
+            <li><a href="http://www.flickr.com/photos/spincyclz"><i class="fa fa-lg fa-flickr"></i> Flickr</a>
+            <li><a href="https://twitter.com/NandaHolz"><i class="fa fa-lg fa-twitter"></i> Twitter</a>
+          </ul>
+          <p>Visit our three wheeled sister company <strong><a href="http://www.sonomatrikes.com/">Sonoma Trikes</a></strong></p>
+        </div>
+        </div>
+      </footer>
+    </div>
+    <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/holder/2.3.0/holder.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.13.3/jquery.tablesorter.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.13.3/jquery.tablesorter.widgets.js"></script>
+    <script src="/js/responsiveslides.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $(".rslides").responsiveSlides({timeout: 10000, random: true});
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        $(".btn-email").on('click', function(){
+          ga('send', 'event', 'button', 'click', 'email');
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      $(function () {
+        $('.btn-popover').popover();
+      });
+      $(function() {
+          $.extend($.tablesorter.themes.bootstrap, {
+            // these classes are added to the table. To see other table classes available,
+            // look here: http://twitter.github.com/bootstrap/base-css.html#tables
+            table : 'table',
+            caption : 'caption',
+            header : '', // give the header a gradient background
+            footerRow : '',
+            footerCells: '',
+            icons : 'fa', // add "icon-white" to make them white; this icon class is added to the <i> in the header
+            sortNone : 'fa-sort',
+            sortAsc : 'fa-sort-asc', // includes classes for Bootstrap v2 & v3
+            sortDesc : 'fa-sort-desc', // includes classes for Bootstrap v2 & v3
+            active : '', // applied when column is sorted
+            hover : '', // use custom css here - bootstrap class may not override it
+            filterRow : '', // filter row class
+            even : '', // odd row zebra striping
+            odd : '' // even row zebra striping
+          });
+
+        $(".tablesorter").tablesorter({
+          theme : "bootstrap",
+
+          widthFixed: false,
+
+          headerTemplate : '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!
+
+          // widget code contained in the jquery.tablesorter.widgets.js file
+          // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+          widgets : [ "uitheme" ],
+
+          widgetOptions : {
+            // using the default zebra striping class name, so it actually isn't included in the theme variable above
+            // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+            zebra : ["even", "odd"],
+
+            // reset filters button
+            filter_reset : ".reset"
+
+            // set the uitheme widget to use the bootstrap theme class names
+            // this is no longer required, if theme is set
+            // ,uitheme : "bootstrap"
+
+          }
+        });
+      });
+    </script>
+    </body>
+</html>

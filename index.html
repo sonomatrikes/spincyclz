@@ -1,0 +1,73 @@
+---
+layout: default
+title: Spin Cyclz
+---
+
+<h1>Spin Cyclz <small>Our Service Revolves Around You</small></h1>
+<div class="row">
+  <div class="col-md-6">
+    <p>Lovely Content</p>
+  </div>
+  <div class="col-md-6">
+    <section>
+      <h2>Get laid back!</h2>
+      <p>{% include hours.html %} To arrange a visit please call or text <a href="tel:+1-707-559-8101">(707) 559-8101</a> or email us at <a href="mailto:onyourleft@spincyclz.com">onyourleft@spincyclz.com</a>.
+      </p>
+      <div id="map-canvas"></div>
+      <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <a href="https://maps.google.com/maps?q=1364+North+McDowell+Blvd+%235+Petaluma,+CA+94954&hnear=1364+N+McDowell+Blvd+%235,+Petaluma,+California+94954&gl=us&t=h&z=16&iwloc=A">
+        <span itemprop="streetAddress">1364 North McDowell Blvd #5</span><br />
+        <span itemprop="addressLocality">Petaluma</span>,
+        <span itemprop="addressRegion">CA</span> <span itemprop="postalCode">94954</span>
+        </a>
+      </p>
+    </section>
+    <section>
+      <h2>Our Manufacturers</h2>
+      <p>We have a curated selection of bikes available from specially manufacturers.</p>
+      <dl class="manufacturers dl-horizontal">
+      {% for manufacture in site.data.manufacturers %}
+        <dt>
+          {% if manufacture.icon %}
+          <img width="16" height="16" src="{{manufacture.icon}}">
+          {% else %}
+          <img width="16" height="16" src="{{manufacture.url}}favicon.ico">
+          {% endif %}
+          <a href="{{manufacture.url}}">{{manufacture.name}}</a>
+        </dt>
+        {% if manufacture.description %}
+        <dd>{{manufacture.description}}</dd>
+        {% endif %}
+      {% endfor %}
+      </dl>
+      <a href="/bikes" class="btn btn-primary">Find a Bike to Ride!</a>
+    </section>
+  </div>
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script>
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: new google.maps.LatLng(38.275081,-122.664113)
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                mapOptions);
+
+
+  var bikeLayer = new google.maps.BicyclingLayer();
+  bikeLayer.setMap(map);
+
+  var myLatLng = new google.maps.LatLng(38.275081,-122.664113);
+  var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Spin Cyclz'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>

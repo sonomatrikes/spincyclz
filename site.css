@@ -1,0 +1,83 @@
+body { padding-top: 70px; }
+#map-canvas {
+    min-height: 400px; 
+    margin: 0px;
+    padding: 0px;
+    border-radius: 6px;
+  }
+p {
+  max-width: 85rem;
+  white-space: normal;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+  color: #2E3191;
+}
+
+.btn-block {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+dl.compare {
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: smaller;
+}
+@media (min-width: 768px) {
+  dl.compare dt {
+    width: 50px;
+  }
+  dl.compare dd {
+    margin-left: 60px;
+  }
+}
+.fa-fw {
+  width: 1.2857142857142858rem;
+}
+
+.img-logo {
+  position: absolute;
+  z-index: 3;
+  right: 25px;
+  top: 15px;
+  max-width: 35%;
+  height: auto;
+  display: block;
+}
+
+.img-inline {
+  margin: 1em;
+  max-width: 20em;
+}
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
